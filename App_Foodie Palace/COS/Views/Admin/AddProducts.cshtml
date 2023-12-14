@@ -1,0 +1,73 @@
+@model ItemDetails
+<style>
+ body {
+  background: #555;
+}
+
+.content
+{
+  max-width:400px;
+  margin:50px;
+  background: white;
+  padding: 40px 10px;
+  position:center;
+  border-color: black;
+  border-width: 1cm;
+  border-radius: 1cm;
+}
+ #back
+        {
+            position: relative;
+          left:-5rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+<form method="post">
+    
+<div class="content">
+   <a href="/Admin/MenuManagement"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+    <div class="float-left">
+        <ul id="update-products">
+            <h4>Add Products</h4>
+            <br>
+                <div><div class="item">Food Id</div> <input asp-for="Foodid" type="text" required/></div> 
+                <div><div class="item">Item Id </div> <input asp-for="Itemid" type="text" required/></div>  
+                <div><div class="item">Item Name</div> <input asp-for="Itemname" type="text" required /></div> 
+                <div>
+                    <label>Item Image</label>
+                    <br>
+                    <input asp-for="Itemimage" type="file" onchange="readURL(this)" accept="Image/*" required/>
+                </div>
+                 
+                <div><div class="item">Price</div> <input asp-for="Itemprice" type="text" required/></div>
+                <br>
+                <div>
+                     <button class="btn btn-info btn-block " asp-action="addItems" asp-controller="Admin"  type="submit" >Update</button>
+                    @* <input type="button" asp-action="Update" value="Update" /> *@
+                  
+                </div>
+        
+        </ul>
+    </div>
+    </form>
+
+    @* <div class="float-right">
+    <h2>Add New Product</h2>
+    <form id="product">
+       
+        <fieldset>
+            <legend>Contact</legend>
+          
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    </form>
+    </div> *@
+</div>

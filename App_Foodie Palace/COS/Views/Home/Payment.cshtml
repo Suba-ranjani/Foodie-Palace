@@ -1,0 +1,133 @@
+@model Payment
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+     background-color: #ff5733;
+}
+ 
+.container {
+
+    max-width:500px;
+    background-color:black;
+  @* margin:10px; *@
+  padding: 10px 10px;
+  position:center;
+
+  border-radius: 1cm;
+    
+    @* position: absolute; *@
+    
+    @* border-bottom-left-radius: 180px; *@
+    @* border-top-right-radius: 150px; *@
+}
+ 
+
+ 
+.text {
+    text-align: center;
+    font-size: 300%;
+    text-decoration:white;
+    @* color: aliceblue; *@
+}
+ 
+.course {
+    color: black;
+    font-size: 25px;
+    font-weight: bolder;
+}
+ 
+
+.card-details {
+  
+    color:white;
+    margin: 10px 30px;
+    padding: 10px;
+    /* border-bottom-left-radius: 80px; */
+}
+ 
+.card-details p {
+    font-size: 15px;
+}
+ 
+.card-details label {
+    font-size: 15px;
+    line-height: 50px;
+}
+ 
+.submit-now-btn {
+    cursor: pointer;
+    color:black;
+  
+    height: 30px;
+    width: 150px;
+    border: none;
+    border-radius: 1cm;
+    margin: 5px 30px;
+    background-color:#42d7f5;
+}
+#input
+{
+    border-radius: 0.1cm;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+ 
+        <div class="card-details">
+            <p>Pay using Credit or Debit card</p>
+ <form method="post" asp-action="Payment">
+            <div class="card-number">
+                <label> Card Number </label>
+                <input type="text"  asp-for="Cardnumber" id="input"
+                       class="card-number-field"
+                       placeholder="" >
+            </div>
+            
+            
+            <div class="date-number">
+                <label> Expiry Date </label>
+                <input type="month" asp-for="Expirydate" id="input"
+                       class="date-number-field"
+                       placeholder="MM-YY" />
+            </div>
+            
+ 
+            <div class="cvv-number">
+                <label> CVV number </label>
+                <input type="text" asp-for="cvv" id="input"
+                       class="cvv-number-field"
+                       placeholder="xxx" />
+            </div>
+            
+            <div class="nameholder-number">
+                <label> Card Holder name </label>
+                <input type="text" asp-for="Name" id="input"
+                       class="card-name-field"
+                       placeholder="Enter your Name" />
+            </div>
+            <br/>
+             <button  type="submit"
+                    class="btn btn-success">
+                submit
+            </button>
+            </form>
+            
+           
+        </div>
+    </div>
+</body>
+</html>

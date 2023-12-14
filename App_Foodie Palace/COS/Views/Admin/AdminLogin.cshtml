@@ -1,0 +1,32 @@
+@model AdminLogin
+
+@* <div class="container-fluid h-custom">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-6 col-xl-5">
+                        <img src="https://img.freepik.com/premium-vector/hand-holding-smartphone-with-pizza-screen-flat-vector-illustration-online-pizza-order-delivery_103044-1214.jpg?size=626&ext=jpg&ga=GA1.2.848201703.1677048901&semt=ais" class="img-fluid" alt="Sample image">
+                    </div>
+   *@
+
+  <div class="col-sm-4 text-center abc">
+
+
+
+    <form method="post" asp-action="AdminLogin">
+
+      <p class="h4 mb-4 text-left">Login</p>
+
+
+      <input asp-for="Username" type="Username"  class="form-control mb-4" placeholder="Enter Username">
+
+      
+      <input asp-for="Password" type="password" class="form-control mb-4" placeholder="Enter Password">
+      
+
+      <button class="btn btn-info btn-block " asp-action="AdminChanges" asp-controller="Admin"  type="submit" >Login</button>
+      </form>
+      <br>
+     
+      
+  </div>
+</div>
+    

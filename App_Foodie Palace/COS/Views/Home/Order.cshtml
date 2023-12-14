@@ -1,0 +1,184 @@
+@model IEnumerable<Menu>
+   <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+body 
+{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   background-color: #ff5733;
+}
+.cart
+{
+    float: right; /* Float the button to the left */
+    margin-top: -20px;
+}
+#item
+{
+    border-color: black;
+    background-color:white;
+    cursor:pointer;
+}
+#item:hover
+{
+    background-color:white;
+    color:rgb(255, 0, 60);
+    font-weight:600px;
+}
+
+nav ul 
+{
+    list-style: none;
+    padding: 0;
+    margin:10px;
+}
+
+nav li 
+{
+    display: inline;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+nav a 
+{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+
+.menu-section 
+{ 
+  
+    max-width: 100%;
+    margin:auto;
+    padding: 20px;
+}
+
+.menu-item 
+{
+    display: inline-block; /* Make menu items appear side by side */
+    width: 300px; /* Adjust the width as per your design, subtracting margin space */
+    margin: 10px 40px 20px 10px; /* Add horizontal spacing between menu items */
+    text-align: left; /* Left-align the content within each menu item */
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-color: black;
+}
+
+.menu-item h2 
+{
+    font-size: 20px;
+    margin: 0;
+}
+
+.menu-item p 
+{
+    margin: 10px 0;
+}
+
+.price 
+{
+    font-weight: bold;
+    color: #ff5733;
+}
+
+.menu-item img 
+{
+   max-width: 100%; /* Ensure the image doesn't exceed its container */
+    height:250px; /* Maintain the aspect ratio of the image */
+    margin-bottom: 10px; /* Add space between the image and content */
+}
+@* .menu-item img:hover
+{
+    box-shadow:1px 1px 1px rgba(0,0,0,0.2);
+    transform:scale(1.01);
+} *@
+.abtn
+      {
+          background:grey;
+        color:white;
+        text-decoration: none;
+        padding:10px 10px;
+        display:inline-block;
+        border-radius:0.1cm;
+        margin-left: -5px;
+        margin-right: 10px;
+      }
+      .abtn:hover{
+        background:black;
+      }
+      #right-side
+      {
+        float: right;
+      }
+      #back
+      {  
+        position: relative;
+        left:-5rem;
+        color: black;
+        margin: 0%; 
+        font-size:36px;
+       }
+      
+
+
+</style>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  <a href="/Home/Index"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+  <script>
+    var message='@TempData["message"]';
+    if(message!='')
+     alert(message);
+  </script>
+  <nav>
+    <ul>
+      <li><a  asp-action="Order" asp-controller="Home" asp-route-Foodid="1">Refreshers</a></li>
+      <li><a  asp-action="Order" asp-controller="Home" asp-route-Foodid="2">Snack Items</a></li>
+      <li><a  asp-action="Order" asp-controller="Home" asp-route-Foodid="3">Food items</a></li>
+      <li>
+      <a asp-action="cart" asp-controller="home" class="abtn" id="right-side">
+      <span type="submit"><b style="font-size:20px">cart</b><i class="fa fa-shopping-cart"></i></span>
+      </a>
+      </li>
+      <li>
+      <a asp-action="logout" asp-controller="home" class="abtn" id="right-side">
+      <span type="submit"><b style="font-size:20px">Logout</b></span>
+      </a>
+      </li>
+      </ul>
+  </nav>
+<section class="menu-section">
+        
+  @foreach(var item in Model)
+  {
+    <article class="menu-item">
+    <form method="post">
+      <img src="@item.Item_image"/>
+      <h2>@item.Item_name</h2>
+      <span class="price">₹@item.Item_price</span>
+      <span class="cart">
+        <button id="item" style="font-size:24px" asp-controller="Home" asp-action="addToCart" asp-route-foodid="@item.Food_id" asp-route-itemid="@item.Item_id" asp-route-itemname="@item.Item_name" asp-route-itemimage="@item.Item_image" asp-route-itemprice="@item.Item_price" asp-route-employeeid="@ViewBag.employeeid" asp-route-quantity="1"> <i class="fa fa-shopping-cart"></i></button>
+      </span>
+         
+    </form>
+    </article>
+  }  
+   
+</section>
+<footer>
+  <p>&copy; 2023 Delicious Food</p>
+</footer>
+</body>
+</html>

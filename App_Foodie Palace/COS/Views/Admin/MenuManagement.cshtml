@@ -1,0 +1,60 @@
+@model IEnumerable<Menu>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+      .btn
+      {
+        margin:10px 10px ;
+      }
+      #back
+        {
+            position: relative;
+          left:-5rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+    </style>
+</head>
+<body>
+  <a href="/Admin/AdminChanges"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+     
+      <table style="width:100%" class="table">
+        <tr>
+            <th style="width: 200px;">Foodid</th>
+             <th style="width: 200px;">Itemid</th>
+            <th style="width: 400px;"> Item Image</th>
+            <th style="width: 200px;">Item Name</th>   
+            <th style="width: 200px;">Item Price</th>   
+        </tr>
+        
+        @foreach(var data in Model)
+        {
+            
+            <tr>
+                <td >@data.Food_id</td>
+                <td >@data.Item_id</td>
+                <td><img src="@data.Item_image" style="height: 25%;width:25%" ></td>
+                <td>@data.Item_name</td>
+                <td>@data.Item_price</td>
+            </tr>
+        }
+        
+        </table>
+        
+    <a  id="add" class="btn btn-success" type="submit" href="/Admin/AddProducts">Add Items</a>
+     <a id="remove" class="btn btn-danger" type="submit" href="/Admin/RemoveProducts">Remove Items</a>
+      <a id="update" class="btn btn-success" type="submit" href="/Admin/UpdateProduct">Update Items</a>
+  
+    
+</body>
+</html>

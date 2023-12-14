@@ -1,0 +1,128 @@
+﻿@*Project title: Foodie palace
+ Author: Subaranjani P
+ Created at: 15.02.2023
+ Last modified date: 6.03.2023
+ Reviewed by:Anitha Manogaran
+ Reviewed at: 9.03.2023*@
+@{
+   ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Foodie place</title>
+    <style>
+        body {
+          background-image: url('/images/color.jpg');
+          background-repeat: no-repeat;
+          @* background-color: rgb(201, 76, 76);  *@
+          font-family: Arial, Helvetica, sans-serif}
+* {box-sizing: border-box;}
+
+#text{
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: #f0f266;
+}
+
+.nav-container a,p {
+  color:yellow;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  
+}
+.nav-container a:hover{
+  background-color:#080808;
+  color:White;
+}
+.left-side{
+  float:left;
+}
+.right-side{
+  float:right;
+}
+.btn {
+  position: absolute;
+  @* align-items:center; *@
+  @* margin:200px 100px 100px 150px; *@
+  top: 500px;
+  left: 650px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color:black;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  padding: 10px 20px;
+  border-color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+ .btn:hover
+ {
+    background:red;
+      }
+.image
+{ 
+  display:inline-block; /* Make menu items appear side by side */
+  margin:80px -200px;
+  float: left;
+    
+}
+.image img
+{
+  margin:0 20px;
+  height:250px;
+	width: 350px;
+  border-radius:0.5cm;
+  border-color: black; 
+}
+.font
+{
+  position: absolute;
+  margin-top: 0px;
+  left:550px;
+  font-family:Brush Script MT,cursive;
+  font-size: 30px;
+  color: #f0f266;
+  
+}
+
+</style>
+    
+</head>
+<body >
+  <script>
+    var message='@TempData["success"]';
+    if(message!='')
+    alert(message);
+  </script>
+  <div class="nav-container">
+  <div class="left-side">
+    <a href="#home"><b>Home</b></a>
+    <a asp-action="Menu" asp-controller="Home"><b>Menu</b></a>
+  </div>
+  <div class="right-side">
+     <a href="/home/Login"><b>Login</b></a><br>
+    <p style="font-size:10px"><b>@ViewBag.employeeid </b></p>    
+    <p style="font-size:10px"><b>@TempData["showtime"] </b></p>
+  </div>
+   <section class="homeimage">
+        <article class="image">
+        <img  src="/images/food.jpg">
+        <img  src="/images/snack.jpg">
+        <img  src="/images/juice.jpg">
+        </article>
+    </section>
+  <p class="font" >Foodie Palace</p>
+  <div class="container" style="margin-top:1rem">
+    <a asp-action="Order" asp-controller="Home" class="btn" style="font-color:white"><span type="submit"><b>Order</b></span></a>
+  </div>
+</body>
+</html>

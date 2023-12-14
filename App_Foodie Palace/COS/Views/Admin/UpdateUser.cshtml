@@ -1,0 +1,49 @@
+ @model Logindetails
+ <style>
+   body {
+  background: #555;
+}
+
+.container{
+  max-width:600px;
+  margin:none;
+  background: white;
+  padding: 10px 10px;
+  position:center;
+  border-color: black;
+  border-radius: 1cm;
+}
+ #back
+        {
+            position: relative;
+          left:-22rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ </style>
+ <a href="/Admin/AdminChanges"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+ <div class=container>
+   
+  <div class="col-sm-4 text-center abc">
+
+ <form method="post" asp-action="Login">
+
+      <p class="h4 mb-4 text-left">Update User</p>
+
+
+      <input asp-for="Userid" type="Username"  class="form-control mb-4" placeholder="Enter EmployeeId" required>
+
+      
+      <input asp-for="SecurityKey" type="password" class="form-control mb-4" placeholder="Enter Password" required>
+      
+
+      <button class="btn btn-info btn-block " asp-action="addUser" asp-controller="Admin" type="submit" >Add User</button>
+      <button class="btn btn-info btn-block " asp-action="removeUser" asp-controller="Admin" type="submit" >Remove</button>
+      </form>
+      </div>
+      </div>

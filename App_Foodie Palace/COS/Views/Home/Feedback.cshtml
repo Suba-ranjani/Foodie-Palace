@@ -1,0 +1,174 @@
+@model Feedback
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Ratings</title>
+    <style>
+        /* Style for the star rating */
+        .rating {
+            display: inline-block;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            margin-top: 10px;
+            margin-left: 150px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .rating label:before {
+            content: '\2605';
+            color:white;
+        }
+
+        .rating input:checked ~ label:before {
+            color: #ffcc00;
+        }
+
+        /* Optional: Style to show the selected rating */
+        .selected-rating {
+            font-weight: bold;
+        }
+        .line-input {
+          background-color: rgb(224, 94, 85);
+            border: none; /* Remove the default input border */
+            border-bottom: 1px solid #000; /* Add a horizontal line */
+            padding: 5px; /* Add padding for spacing */
+            outline: none; /* Remove the input focus outline */
+        }
+    .contain {
+    width: 80%; /* Set the width of the container */
+    max-width: 500px; /* Set a maximum width to ensure it doesn't get too wide on larger screens */
+    height: 300px;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding to the container */
+    border-radius: 1cm;
+    border: black; /* Add a border to the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow for a subtle effect */
+    background-color:rgb(224, 94, 85); /* Set the background color of the container */
+}
+.contain h4{
+  margin-top: 50px;
+            margin-left: 170px;
+
+}
+  .text
+  {
+     margin-top: 10px;
+            margin-left: 150px;
+  }
+  .text input
+  {
+    color: white;
+  }
+    .button 
+  {
+   -webkit-border-radius: 60px;
+   border-radius: 10px;
+   color: black;
+   cursor: pointer;
+   display: inline-block;
+   font-family: sans-serif;
+   font-size: 20px;
+   padding: 5px 15px;
+   text-align: center;
+   text-decoration: none;
+   margin-top: 80px;
+   margin-left: 520px;
+ }
+    </style>
+</head>
+<body>
+   <form method="post">
+    <input asp-for="employeeid" value="@ViewBag.employeeid" hidden >
+   <div class="contain">
+       <h4>Feedback</h4>
+    <div class="rating">
+        <input asp-for="ratings" type="radio" id="star5" name="ratings" value="5" >
+        <label for="star5"></label>
+        <input  asp-for="ratings" type="radio" id="star4" name="ratings" value="4">
+        <label for="star4"></label>
+        <input  asp-for="ratings" type="radio" id="star3" name="ratings" value="3">
+        <label for="star3"></label>
+        <input asp-for="ratings" type="radio" id="star2" name="ratings" value="2">
+        <label for="star2"></label>
+        <input asp-for="ratings" type="radio" id="star1" name="ratings" value="1">
+        <label for="star1"></label>
+    </div>
+    <div class="text">
+    <input asp-for="userfeedback" type="text" id="line-text" class="line-input" placeholder="Comment Your Experience" >
+  </div>
+  </div>
+   <button class="button" type="submit" style="background-color:white;" >Submit</button> 
+  </form>
+  
+    
+</body>
+</html>
+@* @model Feedback
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+  body
+  {
+  background-color: #ff5733;
+  }
+  #feedback
+  {
+  padding: 10px 5px 10px 500px;
+  }
+  #back
+  {
+  position: relative;
+  left:-7rem;
+  color: black;
+  margin: 0%;         
+  font-size:36px;
+  }    
+</style>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <a href="/Home/Index"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+  <script>
+    var message='@TempData["Enter"]';
+    if(message!='')
+    alert(message);
+  </script>
+  @using (Html.BeginForm(("Feedback", "Home", FormMethod.Post)))
+  {
+    <h2 id="feedback">Feedback</h2>
+    <br>
+    <input asp-for="employeeid" value="@ViewBag.employeeid" hidden >
+    <br>
+    @Html.TextBoxFor(m => m.userfeedback, new { @class = "form-control",@Placeholder="Comment your experience" }) 
+    <br>
+    <br>
+    <p style="font-size:20px">Ratings</p>
+    <div class="rating">
+      @Html.RadioButtonFor(m => m.ratings, "1",new{@placeholder="1"}) 
+      @Html.RadioButtonFor(m => m.ratings, "2") 
+      @Html.RadioButtonFor(m => m.ratings, "3")
+      @Html.RadioButtonFor(m => m.ratings, "4") 
+      @Html.RadioButtonFor(m => m.ratings, "5")    
+    </div>       
+  <br>
+  <br>
+  <button class="btn btn-info btn-block " type="submit" style="background-color:white;" >Submit</button> 
+  }
+</body>
+</html> *@

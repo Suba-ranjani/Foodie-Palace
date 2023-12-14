@@ -1,0 +1,41 @@
+@model IEnumerable<Userstatus>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #back
+        {
+            position: relative;
+             left:-5rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+</style>
+<body>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <a href="/Admin/AdminChanges"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+    <table style="width:100%" class="table">
+        <tr>
+            <th>EmployeeId</th>
+            <th>Total Price</th>
+            <th>Timing</th>      
+        </tr>
+        @foreach(var data in Model)
+        {
+            <tr>
+                <td>@data.EmployeeId</td>
+                <td>@data.TotalPrice</td>
+                <td>@data.time</td>
+            </tr>
+        }
+        </table>
+</body>
+</html>

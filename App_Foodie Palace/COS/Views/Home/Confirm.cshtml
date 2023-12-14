@@ -1,0 +1,66 @@
+@model IEnumerable<CartDetails>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body
+  {
+  background-color: #ff5733;
+  }
+  .table,td
+  {
+  border:1px solid black;
+  border-collapse: collapse;
+  }
+  table th tr
+  {
+    color:white;
+  }
+  #back
+  {
+  position: relative;
+  left:-5rem;
+  @* float:left; *@
+  color: black;
+  margin: 0%;
+          
+  font-size:36px;
+  }
+</style>
+</head>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  <a href="/Home/cart"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+  <p><b>@ViewBag.user</b><p>
+  <table style="width:50%" class="table">
+    <tr>
+    <th>Itemname</th>
+    <th>Price</th>         
+    </tr>
+    <tr>
+    <tr>   
+    @{             
+    double total=0;
+    int count=0;    
+    foreach(var itemdetail in Model)
+    {
+      double price =0;                    
+      price = @itemdetail.Itemprice* @itemdetail.Quantity;
+      total=total+ price;
+      count++;
+      <tr>                   
+      <td >@itemdetail.Itemname</td>
+      <td >@price</td>
+      </tr>
+    }            
+    <th colspan="count"> Total Price= Rs.@total</th>
+    }  
+    </tr>         
+    </table>
+    <br>
+    <br>
+    <a class="btn btn-success" asp-action="PayNow" asp-controller="Home"  >Pay Now</a>
+</body>
+</html>

@@ -1,0 +1,5 @@
+
+Log Entry : 
+08/12/2023 09:20:09
+Error in: C:\Users\Ranjani\Desktop\Foodie Palace\App_Foodie Palace\COS\wwwroot\LogError12-08-YY.txt. Error Message:Error
+__________________________

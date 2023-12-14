@@ -1,0 +1,197 @@
+@model IEnumerable<Menu>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+  @* font-family:monospace; *@
+         margin:0;
+         padding:0;
+         box-sizing:border-box;
+      }
+
+      .container
+      {
+        max-width:80%;
+        margin:0px auto;
+      }
+      .container>h1
+      {
+        padding:10px 0;
+
+      }
+      .cart
+      {
+        display:flex;
+      }
+      .items
+      {
+        flex:0.75;
+
+        transform:scale(1.04);
+      }
+      .item
+      {
+
+        width:35%;
+        height:20%;
+        overflow:hidden;
+        border:1px solid silver;
+        border-radius:10px 10px;
+        margin-bottom:5rem;
+        border-color: black;
+
+
+      }
+      .items :hover
+      {
+        box-shadow:4px 2px 4px rgba(0,0,0,0.2)
+        transform:scale(1.01);
+      }
+      .item>img
+      {
+        width:70%;
+        heigth:70%;
+        object-fit:cover;
+
+      }
+      .item>img:hover{
+        transform:scale(1.04);
+      }
+      .item-info
+      {
+        padding:40px;
+        width:100%;
+        position:relative;
+      }
+      .item-name,.item-price
+      {
+        margin-buttom:20px;
+      }
+      .item-add
+      {
+
+        padding:5px 5px;
+        background-color:#16f2cd;
+        color:black;
+        cursor:pointer;
+        border-radius:5px;
+      }
+      .item-add:hover{
+        background-color:white;
+        color:#16f2cd;
+        font-weight:600px;
+        border:1px solid #16f2cd;
+      }
+      .item-remove
+      {
+
+        padding:5px 5px;
+        background-color:#16f2cd;
+        color:black;
+        cursor:pointer;
+        border-radius:5px;
+      }
+      .item-remove:hover{
+        background-color:white;
+        color:#16f2cd;
+        font-weight:100px;
+        border:1px solid #16f2cd;
+      }
+      .product-quantity>input
+      {
+        width:10px;
+        padding:5px 5px;
+        text-align:center;
+      }
+      .counter
+      {
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .abtn
+      {
+          background:grey;
+        color:white;
+        text-decoration: none;
+        padding:10px 10px;
+        display:inline-block;
+        border-radius:0.1cm;
+        margin-left: -5px;
+        margin-right: 10px;
+      }
+      .abtn:hover{
+        background:black;
+      }
+
+      .btn
+      {
+        background:black;
+        color:white;
+        text-decoration: none;
+        padding:10px 10px;
+        display:inline-block;
+        border-radius:1cm;
+        margin-right: 40px;
+      }
+      .btn:hover{
+        background:#187ADD;
+      }
+
+      #left-side
+      {
+        float: right;
+      }
+      #back
+        {
+            position: relative;
+          left:-9rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+    </style>
+</head>
+<body>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <a href="/Home/Index"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+    <h1>Food Items</h1>
+          <div>
+            <br>
+          <a class="btn btn-default" asp-action="Menu" asp-controller="Home" asp-route-foodid="1">Refreshers</a>
+         <a class="btn btn-default" asp-action="Menu" asp-controller="Home" asp-route-foodid="2">Snack Items</a>
+         <a class="btn btn-default" asp-action="Menu" asp-controller="Home" asp-route-foodid="3">Food Items</a>
+         </div>
+         <br>
+     <div class="container">
+      
+    @foreach (var item in Model)
+    {
+      <table>
+        
+              <div class="row">
+                 <div class="col-sm-4 item">
+                <img src="@item.Item_image"/>
+                </div> 
+                <div class="col-sm-6">
+               <h5 class="item-name" >@item.Item_name</h5>
+                <p class="item-price">Rs.@item.Item_price</p>
+                </div>
+            
+                </div>
+                
+                </table>
+    }
+    
+    </div>
+</body>
+</html>

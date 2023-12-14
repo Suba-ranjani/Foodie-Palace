@@ -1,0 +1,48 @@
+@model IEnumerable<Likedlist>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     #back
+        {
+            position: relative;
+             left:-5rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+</style>
+<body>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <a href="/Admin/AdminChanges"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+    <table style="width:100%" class="table">
+        <tr>
+            <th style="width: 200px;">Preference</th>
+            <th style="width: 400px;"> Item Imgae</th>
+            <th style="width: 200px;">Item Name</th>   
+            <th style="width: 200px;">Item Price</th>   
+        </tr>
+        @{
+            int preference=0;
+        foreach(var data in Model)
+        {
+            preference+=1;
+            <tr>
+                <td >@preference</td>
+
+                <td><img src="@data.itemimage" style="height: 25%;width:25%" ></td>
+                <td>@data.itemname</td>
+                <td>@data.itemprice</td>
+            </tr>
+        }
+        }
+        </table>
+</body>
+</html>

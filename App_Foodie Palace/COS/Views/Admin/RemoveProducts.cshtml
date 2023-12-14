@@ -1,0 +1,47 @@
+@model ItemdetailsRemove
+<style>
+  body {
+  background: #555;
+}
+
+.container{
+  max-width:600px;
+  margin:none;
+  background: white;
+  padding: 10px 10px;
+  position:center;
+  border-color: black;
+  border-radius: 1cm;
+}   
+ #back
+        {
+            position: relative;
+          left:-21rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <a href="/Admin/MenuManagement"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+<div container>
+  
+<form method="post">
+ 
+<div class="content">
+    <div class="float-left">
+        <ul id="update-products">
+            <h4>Remove-Products</h4>
+            <br>
+               
+                <div><div class="item">Food Id</div> <input asp-for="foodid" type="text" required/></div> 
+                <div><div class="item">Item Id </div> <input asp-for="itemid" type="text" required/></div>  
+                <div><div class="item">Item Name</div> <input asp-for="itemname" type="text" required /></div>
+                <br>
+                <button class="btn btn-info btn-block " asp-action="deleteItems" asp-controller="Admin"  type="submit" >Remove</button>
+                </div>
+                </div>
+ </form>
+ </div>

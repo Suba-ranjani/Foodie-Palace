@@ -1,0 +1,44 @@
+@model IEnumerable<Feedback>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   #back
+        {
+            position: relative;
+          left:-5rem;
+           @* float:left; *@
+           color: black;
+           margin: 0%;
+          
+          font-size:36px;
+        }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+     <a href="/Admin/AdminChanges"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+    
+    <table style="width:100%" class="table">
+        <tr>
+            <th>EmployeeId</th>
+            <th>Ratings</th>
+            <th>Feedback</th>      
+        </tr>
+        @foreach(var data in Model)
+        {
+            <tr>
+                <td>@data.employeeid</td>
+                <td>@data.ratings</td>
+                <td>@data.userfeedback</td>
+            </tr>
+        }
+        </table>
+           
+        </table>
+        </body>
+        </html>

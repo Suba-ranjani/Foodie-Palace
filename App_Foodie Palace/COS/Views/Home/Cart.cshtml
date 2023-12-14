@@ -1,0 +1,60 @@
+@model IEnumerable<CartDetails>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body
+{
+  background-color: #ff5733;
+}
+table th,td
+{
+  color:white;
+}
+#back
+{
+  position: relative;
+  left:-5rem;
+  color: black;
+  margin: 0%; 
+  font-size:36px;
+}
+</style>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <a href="/Home/Order"><i class="fa fa-arrow-circle-o-left" id="back" ></i></a>
+  <table style="width:100%" class="table">
+    <tr>
+      <th>Item Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+      <th>Remove</th>       
+      </tr>
+    @{              
+    foreach(var itemdetail in Model)
+    {
+      int totalprice = @itemdetail.Itemprice*@itemdetail.Quantity;              
+    <tr>
+        <td>@itemdetail.Itemname</td>
+        <td>@itemdetail.Itemprice</td>
+        <div class="quantity">
+        <td><a  class="btn btn-success" type="submit" asp-action="Quantity" asp-controller="Home" asp-route-quantity="@itemdetail.Quantity" asp-route-userId="@itemdetail.EmployeeId" asp-route-foodId="@itemdetail.Foodid" asp-route-itemId="@itemdetail.ItemId" asp-route-itemName="@itemdetail.Itemname" asp-route-itemPrice="@itemdetail.Itemprice" asp-route-sign="+">+</a>
+        <input value="@itemdetail.Quantity">
+        <a   class="btn btn-danger" type="submit"   asp-action="Quantity" asp-controller="Home" asp-route-quantity="@itemdetail.Quantity" asp-route-userId="@itemdetail.EmployeeId" asp-route-foodId="@itemdetail.Foodid" asp-route-itemId="@itemdetail.ItemId" asp-route-itemName="@itemdetail.Itemname" asp-route-itemPrice="@itemdetail.Itemprice" asp-route-sign="-">-</a>
+        </td>
+        </div>
+        <td>@totalprice</td>
+        <td><a asp-action="Remove" asp-controller="Home" asp-route-itemid="@itemdetail.ItemId" asp-route-employeeid="@itemdetail.EmployeeId" class="btn btn-danger">Remove</a>
+        </td>             
+    </tr>     
+      }    
+    }
+  </table>      
+  <a class="btn btn-success" asp-action="Confirm" asp-controller="Home"  >Confirm</a>
+</body>
+</html>
